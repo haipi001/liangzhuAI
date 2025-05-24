@@ -10,6 +10,10 @@
     "build": "rm -rf dist && pnpm build:client && cp package.json dist && touch dist/build.flag",
     "postinstall": "npm install && vite build"
   },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.9.2",
