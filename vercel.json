@@ -6,8 +6,9 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "npm install -g pnpm && pnpm install",
-        "buildCommand": "pnpm run build"
+        "installCommand": "corepack enable && corepack prepare pnpm@8.9.0 --activate && pnpm install",
+        "buildCommand": "pnpm run build",
+        "nodeVersion": "18.x"
       }
     }
   ],
@@ -16,7 +17,7 @@
       "src": "/(.*)",
       "dest": "/",
       "headers": {
-        "Cache-Control": "s-maxage=1, stale-while-revalidate=59"
+        "Cache-Control": "s-maxage=3600, stale-while-revalidate=1800"
       }
     }
   ]
