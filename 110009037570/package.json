@@ -6,6 +6,7 @@
   "scripts": {
     "dev:client": "vite --host --port 3000",
     "dev": "pnpm dev:client",
+    "start": "vite preview --port 3000",
     "build:client": "vite build --outDir dist/static",
     "build": "rm -rf dist && pnpm build:client && cp package.json dist && touch dist/build.flag",
     "preinstall": "npx only-allow pnpm && corepack enable && corepack prepare pnpm@8.9.0 --activate",
