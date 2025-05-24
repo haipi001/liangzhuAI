@@ -8,11 +8,13 @@
     "dev": "pnpm dev:client",
     "build:client": "vite build --outDir dist/static",
     "build": "rm -rf dist && pnpm build:client && cp package.json dist && touch dist/build.flag",
-    "postinstall": "npm install && vite build"
+    "preinstall": "npx only-allow pnpm && corepack enable && corepack prepare pnpm@8.9.0 --activate",
+    "postinstall": "pnpm install --frozen-lockfile"
   },
   "engines": {
-    "node": "18.12.1",
-    "pnpm": "8.9.0"
+    "node": ">=18.12.1 <19",
+    "pnpm": "8.9.0",
+    "npm": "please-use-pnpm"
   },
   "packageManager": "pnpm@8.9.0",
   "dependencies": {

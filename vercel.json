@@ -6,9 +6,10 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "corepack enable && corepack prepare pnpm@8.9.0 --activate && pnpm install",
+        "installCommand": "corepack enable && corepack prepare pnpm@8.9.0 --activate && pnpm install --frozen-lockfile --strict-peer-dependencies",
         "buildCommand": "pnpm run build",
-        "nodeVersion": "18.x"
+        "nodeVersion": "18.x",
+        "includeFiles": ["package.json", "pnpm-lock.yaml", ".npmrc"]
       }
     }
   ],
