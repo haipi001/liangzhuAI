@@ -3,15 +3,9 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
+      "use": "@vercel/node",
       "config": {
-        "distDir": "dist",
-        "installCommand": "pnpm install --frozen-lockfile",
-        "buildCommand": "pnpm run build",
-        "nodeVersion": "18.x",
-        "environment": {
-          "NPM_CONFIG_PRODUCTION": "false"
-        }
+        "includeFiles": ["dist/**"]
       }
     }
   ],
@@ -23,5 +17,9 @@
         "Cache-Control": "s-maxage=3600, stale-while-revalidate=1800"
       }
     }
-  ]
+  ],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": "false",
+    "PNPM_VERSION": "latest"
+  }
 }
