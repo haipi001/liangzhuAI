@@ -6,10 +6,12 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "installCommand": "pnpm install --frozen-lockfile --strict-peer-dependencies",
+        "installCommand": "pnpm install --frozen-lockfile",
         "buildCommand": "pnpm run build",
         "nodeVersion": "18.x",
-        "includeFiles": ["package.json", "pnpm-lock.yaml", ".npmrc"]
+        "environment": {
+          "NPM_CONFIG_PRODUCTION": "false"
+        }
       }
     }
   ],
